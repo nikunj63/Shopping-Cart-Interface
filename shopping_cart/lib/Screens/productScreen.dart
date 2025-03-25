@@ -110,13 +110,14 @@ class _ProductScreenState extends State<ProductScreen> {
                               Row(
                                 children: [
                                   Text(
-                                    "₹${product.price.toStringAsFixed(2)}",
-                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text(
                                     "₹${(product.price / (1 - (product.discountPercentage / 100))).toStringAsFixed(2)}",
                                     style: TextStyle(decoration: TextDecoration.lineThrough, color: Colors.grey),
+                                  ),
+                                  
+                                  SizedBox(width: 5),
+                                  Text(
+                                    "₹${product.price.toStringAsFixed(2)}",
+                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                                   ),
                                 ],
                               ),
