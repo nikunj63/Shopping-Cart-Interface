@@ -16,7 +16,8 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    double discountedPrice = widget.product.price * (1 - (widget.product.discountPercentage / 100));
+    double originalPrice = widget.product.price / (1 - (widget.product.discountPercentage / 100)); 
+    double discountedPrice = widget.product.price; 
 
     return Scaffold(
       appBar: AppBar(
@@ -52,12 +53,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               Row(
                 children: [
                   Text(
-                    "\₹${discountedPrice.toStringAsFixed(2)}",
+                    "₹${originalPrice.toStringAsFixed(2)}",
                     style: const TextStyle(fontSize: 18, color: Colors.grey, decoration: TextDecoration.lineThrough),
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    "\₹${widget.product.price.toStringAsFixed(2)}",
+                    "\₹${discountedPrice.toStringAsFixed(2)}",
                     style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(width: 8),
